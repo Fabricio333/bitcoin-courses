@@ -289,7 +289,52 @@ const wikilinkConcepts = {
     "bitcoin": {
         image: "₿",
         title: "Bitcoin",
-        description: "Bitcoin Blah Blah"
+        description: "Bitcoin is a decentralized digital currency that operates without a central authority. It allows peer-to-peer transactions on the internet."
+    },
+    "wallet": {
+        image: "👛",
+        title: "Wallet",
+        description: "A Bitcoin wallet stores your private keys and allows you to send and receive Bitcoin securely."
+    },
+    "node": {
+        image: "🖧",
+        title: "Node",
+        description: "A node is a computer that helps run the Bitcoin network by validating transactions and blocks."
+    },
+    "miner": {
+        image: "⛏️",
+        title: "Miner",
+        description: "Miners use computing power to secure the network and add new blocks to the blockchain. They are rewarded with Bitcoin."
+    },
+    "satoshi": {
+        image: "🟠",
+        title: "Satoshi",
+        description: "A satoshi is the smallest unit of Bitcoin, equal to 0.00000001 BTC. Named after Bitcoin's creator."
+    },
+    "seed phrase": {
+        image: "📝",
+        title: "Seed Phrase",
+        description: "A seed phrase is a list of words that backs up your wallet. If you lose it, you lose access to your Bitcoin."
+    },
+    "lightning network": {
+        image: "⚡",
+        title: "Lightning Network",
+        description: "A fast, low-fee payment system built on top of Bitcoin. It allows instant transactions without waiting for blockchain confirmations."
+    },
+    "decentralization": {
+        image: "🌐",
+        title: "Decentralization",
+        description: "Decentralization means no single entity controls the Bitcoin network. Power is spread across many users and nodes."
+    },
+    "hash": {
+        image: "🔁",
+        title: "Hash",
+        description: "A hash is a fixed-length string created from data using an algorithm. It ensures integrity and security in Bitcoin."
+    },
+    "halving": {
+        image: "✂️",
+        title: "Halving",
+        description: "Halving is a scheduled event that cuts the Bitcoin mining reward in half. It happens every 210,000 blocks (~4 years)."
     }
 };
 
