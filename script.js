@@ -270,6 +270,28 @@ const courses = {
         ]
     }
 };
+const wikilinkConcepts = {
+    "public key": {
+        image: "🔑",
+        title: "Public Key",
+        description: "A public key is a cryptographic code that allows users to receive Bitcoin transactions. It’s safe to share."
+    },
+    "private key": {
+        image: "🛡️",
+        title: "Private Key",
+        description: "A private key gives access to your Bitcoin. Never share it—whoever holds it controls your coins."
+    },
+    "blockchain": {
+        image: "⛓️",
+        title: "Blockchain",
+        description: "A blockchain is a decentralized ledger that records all Bitcoin transactions in secure blocks."
+    },
+    "bitcoin": {
+        image: "₿",
+        title: "Bitcoin",
+        description: "Bitcoin Blah Blah"
+    }
+};
 
 // State management
 let currentCourse = null;
@@ -378,6 +400,37 @@ function selectCourse(courseId) {
     showView('learning');
     render(currentScreen);
 }
+function convertWikilinks(text) {
+    const regex = /\b(public key|private key|blockchain)\b/gi;
+    return text.replace(regex, match => {
+        const conceptId = match.toLowerCase();
+        return `<span class="wikilink" onclick="showConceptModal('${conceptId}')">${match}</span>`;
+    });
+}
+
+let returnToScreen = null;
+
+function showConceptModal(id) {
+    const concept = wikilinkConcepts[id];
+    if (!concept) return;
+
+    document.getElementById('conceptImage').innerText = concept.image;
+    document.getElementById('conceptTitle').innerText = concept.title;
+    document.getElementById('conceptDescription').innerText = concept.description;
+
+    document.getElementById('conceptModal').classList.remove('hidden');
+    returnToScreen = currentScreen;
+}
+
+function closeConceptModal() {
+    document.getElementById('conceptModal').classList.add('hidden');
+}
+
+function restoreLearningScreen() {
+    closeConceptModal();
+    render(returnToScreen);
+}
+
 
 // Render learning screen
 function render(screenId) {
@@ -407,8 +460,8 @@ function render(screenId) {
     learningCard.innerHTML = `
             <div class="text-center fade-in">
                 <div class="text-6xl mb-6">${screen.image}</div>
-                <h2 class="text-3xl font-bold mb-6">${screen.title}</h2>
-                <p class="text-lg text-white/90 mb-8 leading-relaxed whitespace-pre-line">${screen.text}</p>
+                <h2 class="text-3xl font-bold mb-6">${screen.title}</h2>  
+                <p class="text-lg text-white/90 mb-8 leading-relaxed whitespace-pre-line">${convertWikilinks(screen.text)}</p>
                 <div class="flex flex-wrap gap-4 justify-center">
                     ${optionsHtml}
                 </div>
