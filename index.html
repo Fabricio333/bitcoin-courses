@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bitcoin Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+
+</head>
+
+<body class="min-h-screen gradient-bg text-white overflow-x-hidden">
+<!-- Header -->
+<header class="glass sticky top-0 z-50 border-b border-white/20">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showView('courses')">
+                <div class="text-3xl bitcoin-icon font-bold">₿</div>
+                <h1 class="text-xl font-semibold">Bitcoin Learning Platform</h1>
+            </div>
+
+            <nav class="flex gap-2">
+                <button id="coursesBtn" class="nav-button px-4 py-2 rounded-lg bg-purple-600/80 hover:bg-purple-500/80 transition-all duration-300 font-medium">
+                    📚 Courses
+                </button>
+                <button id="learnBtn" class="nav-button px-4 py-2 rounded-lg bg-blue-600/80 hover:bg-blue-500/80 transition-all duration-300 font-medium hidden">
+                    📖 Learn
+                </button>
+                <button id="mapBtn" class="nav-button px-4 py-2 rounded-lg bg-emerald-600/80 hover:bg-emerald-500/80 transition-all duration-300 font-medium hidden">
+                    🗺️ Progress Map
+                </button>
+                <button id="resumeBtn" class="nav-button px-4 py-2 rounded-lg bg-violet-600/80 hover:bg-violet-500/80 transition-all duration-300 font-medium hidden">
+                    ⚡ Resume
+                </button>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Course Selection Section -->
+    <section id="coursesSection" class="space-y-6">
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold mb-4">Choose Your Learning Path</h2>
+            <p class="text-lg text-white/80">Start your Bitcoin journey with our comprehensive courses</p>
+        </div>
+        
+        <div id="coursesList" class="grid gap-6 md:grid-cols-2">
+            <!-- Course cards will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Learning Section -->
+    <section id="learningSection" class="hidden space-y-6">
+        <div class="flex items-center justify-between mb-4">
+            <button onclick="showView('courses')" class="text-white/70 hover:text-white transition-colors duration-200 flex items-center gap-2">
+                ← Back to Courses
+            </button>
+            <h3 id="currentCourseName" class="text-lg font-semibold text-white/90"></h3>
+        </div>
+        
+        <div id="learningCard" class="glass rounded-2xl p-8 card-hover slide-in">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Progress Map Section -->
+    <section id="mapSection" class="hidden space-y-6">
+        <div class="flex items-center justify-between mb-4">
+            <button onclick="showView('courses')" class="text-white/70 hover:text-white transition-colors duration-200 flex items-center gap-2">
+                ← Back to Courses
+            </button>
+            <h3 id="mapCourseName" class="text-lg font-semibold text-white/90"></h3>
+        </div>
+        
+        <!-- Progress Overview -->
+        <div class="glass rounded-2xl p-6 card-hover">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold">Your Learning Journey</h2>
+                <div class="flex items-center gap-4">
+                    <div class="relative w-16 h-16">
+                        <svg class="progress-ring w-full h-full" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="8"/>
+                            <circle id="progressCircle" cx="60" cy="60" r="54" fill="none" stroke="#10b981" stroke-width="8"
+                                    stroke-linecap="round" stroke-dasharray="339.292" stroke-dashoffset="339.292"/>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span id="progressPercent" class="text-sm font-bold">0%</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div id="completedCount" class="text-2xl font-bold text-emerald-400">0</div>
+                        <div class="text-sm text-white/70">Completed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Badges -->
+            <div id="badges" class="flex gap-2 flex-wrap">
+                <!-- Badges will be added dynamically -->
+            </div>
+        </div>
+
+        <!-- Topic Categories -->
+        <div class="grid gap-6" id="topicCategories">
+            <!-- Categories will be added dynamically -->
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
